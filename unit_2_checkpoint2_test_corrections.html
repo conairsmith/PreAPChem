@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 2 Checkpoint 2: Test Corrections &amp; Retest Qualifier | Pre-AP Chemistry</title>
+<style>
+  :root {
+    --bg: #f1f5f9;
+    --surface: #ffffff;
+    --surface-2: #f8fafc;
+    --ink: #0f172a;
+    --ink-muted: #475569;
+    --border: #cbd5e1;
+    --primary: #005b96;
+    --primary-dark: #004473;
+    --primary-soft: #e0f2fe;
+    --teal: #0d9488;
+    --teal-soft: #ccfbf1;
+    --amber: #d97706;
+    --amber-soft: #fef3c7;
+    --rose: #be123c;
+    --rose-soft: #ffe4e6;
+    --violet: #6d28d9;
+    --violet-soft: #ede9fe;
+    --radius: 12px;
+    --shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .topbar {
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 14px 24px;
+    border-bottom: 4px solid #14b8a6;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
+  .topbar-title h1 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .topbar-title p {
+    margin: 2px 0 0;
+    font-size: 0.82rem;
+    color: #94a3b8;
+  }
+  .topbar-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    border: none;
+    border-radius: 8px;
+    padding: 9px 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.15s, transform 0.08s;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-primary { background: var(--primary); color: #fff; }
+  .btn-primary:hover:not(:disabled) { background: var(--primary-dark); }
+  .btn-teal { background: var(--teal); color: #fff; }
+  .btn-teal:hover:not(:disabled) { background: #0f766e; }
+  .btn-outline { background: transparent; color: #e2e8f0; border: 1px solid #475569; }
+  .btn-outline:hover { background: #1e293b; }
+  .btn-light { background: #e2e8f0; color: var(--ink); }
+  .btn-light:hover { background: #cbd5e1; }
+  .btn-danger-soft { background: var(--rose-soft); color: var(--rose); }
+  .btn-danger-soft:hover { background: #fecdd3; }
+
+  .container {
+    max-width: 1060px;
+    margin: 24px auto 60px;
+    padding: 0 18px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 22px;
+    margin-bottom: 20px;
+  }
+  .card-accent-blue { border-top: 4px solid var(--primary); }
+  .card-accent-teal { border-top: 4px solid var(--teal); }
+  .card-accent-amber { border-top: 4px solid var(--amber); }
+
+  .notice {
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+    border-left: 4px solid;
+  }
+  .notice-info { background: var(--primary-soft); border-color: var(--primary); color: #0c4a6e; }
+  .notice-amber { background: var(--amber-soft); border-color: var(--amber); color: #78350f; }
+  .notice-teal { background: var(--teal-soft); border-color: var(--teal); color: #134e4a; }
+  .notice-rose { background: var(--rose-soft); border-color: var(--rose); color: #881337; }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  label.field-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  input[type="text"], input[type="number"], textarea, select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--ink);
+    background: #fff;
+  }
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 91, 150, 0.14);
+  }
+
+  .q-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+    gap: 10px;
+    margin: 14px 0 18px;
+  }
+  .q-chip {
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 11px;
+    cursor: pointer;
+    background: var(--surface-2);
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    transition: all 0.14s;
+    user-select: none;
+  }
+  .q-chip:hover { border-color: var(--primary); background: #f0f9ff; }
+  .q-chip.selected {
+    border-color: var(--primary);
+    background: var(--primary-soft);
+    box-shadow: 0 0 0 2px rgba(0, 91, 150, 0.15);
+  }
+  .q-chip input { margin-top: 3px; accent-color: var(--primary); width: 16px; height: 16px; }
+  .q-chip .q-num { font-weight: 800; color: var(--primary-dark); font-size: 0.95rem; }
+  .q-chip .q-tag { font-size: 0.77rem; color: var(--ink-muted); display: block; line-height: 1.25; }
+  .badge-trap {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    background: var(--amber-soft);
+    color: #92400e;
+    padding: 1px 6px;
+    border-radius: 999px;
+    margin-top: 3px;
+  }
+
+  .progress-bar-wrap {
+    background: #e2e8f0;
+    height: 10px;
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 8px 0 4px;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--teal));
+    transition: width 0.25s ease;
+  }
+
+  .q-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 16px;
+  }
+  .q-tab {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    background: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: var(--ink-muted);
+  }
+  .q-tab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .q-tab.done { background: var(--teal-soft); color: #0f766e; border-color: var(--teal); }
+  .q-tab.active.done { background: var(--teal); color: #fff; }
+
+  .step-box {
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 14px;
+    background: var(--surface-2);
+    transition: opacity 0.2s;
+  }
+  .step-box.locked {
+    opacity: 0.52;
+    pointer-events: none;
+    background: #e2e8f0;
+  }
+  .step-box.passed {
+    border-color: var(--teal);
+    background: #f0fdfa;
+  }
+  .step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+  .step-title { font-weight: 700; font-size: 0.98rem; color: var(--ink); }
+  .step-status {
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: #e2e8f0;
+    color: var(--ink-muted);
+  }
+  .step-box.passed .step-status { background: var(--teal); color: #fff; }
+
+  .option-list { display: grid; gap: 8px; margin: 10px 0; }
+  .opt-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 0.93rem;
+  }
+  .opt-label:hover { border-color: var(--primary); background: #f8fafc; }
+  .opt-label input { margin-top: 3px; accent-color: var(--primary); }
+
+  .feedback {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: none;
+  }
+  .feedback.show { display: block; }
+  .feedback.ok { background: var(--teal-soft); color: #134e4a; border: 1px solid #5eead4; }
+  .feedback.err { background: var(--rose-soft); color: #881337; border: 1px solid #fda4af; }
+
+  .svg-frame {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    margin: 10px 0 14px;
+    text-align: center;
+    overflow-x: auto;
+  }
+  .reflection-box {
+    border: 1.5px solid #94a3b8;
+    border-radius: 10px;
+    padding: 16px;
+    background: #fff;
+    margin-top: 14px;
+  }
+  .char-count { font-size: 0.78rem; color: var(--ink-muted); margin-top: 4px; }
+
+  .modal-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(15, 23, 42, 0.58);
+    display: none; align-items: center; justify-content: center;
+    z-index: 90; padding: 16px;
+  }
+  .modal-backdrop.open { display: flex; }
+  .modal {
+    background: #fff;
+    border-radius: 14px;
+    max-width: 780px;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  }
+  .modal-head {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;
+  }
+  .ref-section {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+  }
+  .ref-section h3 { margin: 0 0 8px; font-size: 1rem; color: var(--primary-dark); }
+  .ref-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin-top: 8px; }
+  .ref-table th, .ref-table td { border: 1px solid var(--border); padding: 6px 8px; text-align: left; }
+  .ref-table th { background: #e2e8f0; }
+
+  .ticket-box {
+    border: 2px dashed var(--primary);
+    border-radius: 12px;
+    padding: 22px;
+    background: #fff;
+  }
+  .status-pill {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 0.92rem;
+  }
+  .status-qualified { background: var(--teal-soft); color: #0f766e; border: 1px solid var(--teal); }
+  .status-progress { background: var(--amber-soft); color: #92400e; border: 1px solid var(--amber); }
+
+  .hidden { display: none !important; }
+
+  @media print {
+    .topbar, .no-print { display: none !important; }
+    body { background: #fff; }
+    .container { margin: 0; max-width: 100%; }
+    .card { box-shadow: none; border: 1px solid #94a3b8; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-title">
+    <h1>Pre-AP Chemistry | Unit 2 Checkpoint 2: Test Corrections</h1>
+    <p>Bonding, Structure &amp; Interactions (Q1–Q25) — Guided Mastery &amp; Retest Qualifier</p>
+  </div>
+  <div class="topbar-actions no-print">
+    <button type="button" class="btn btn-outline" onclick="openRefModal()">Chemistry Reference Sheet</button>
+    <button type="button" class="btn btn-outline" id="navTicketBtn" onclick="switchView('ticket')" style="display:none;">View Retest Ticket</button>
+    <button type="button" class="btn btn-danger-soft" onclick="resetDraft()">Reset Draft</button>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- VIEW 1: SETUP -->
+  <section id="viewSetup" class="card card-accent-blue">
+    <h2 style="margin-top:0;">Step 1: Student Info &amp; Missed Questions Setup</h2>
+    <div class="notice notice-info">
+      <strong>Note on Q21 (Copper(II) Sulfate):</strong> Both <strong>A</strong> and <strong>D</strong> received credit on the exam because sulfate's charge wasn't printed. If you answered D or want to reinforce polyatomic formulas, checking Q21 here still walks you through why <strong>CuSO<sub>4</sub></strong> is exact for finals.
+    </div>
+
+    <div class="form-grid">
+      <div>
+        <label class="field-label" for="studentName">Student Full Name (Required)</label>
+        <input type="text" id="studentName" placeholder="" autocomplete="off" oninput="saveIdentity()">
+      </div>
+      <div>
+        <label class="field-label" for="studentSection">Class Section (Required)</label>
+        <input type="text" id="studentSection" placeholder="" autocomplete="off" oninput="saveIdentity()">
+      </div>
+      <div>
+        <label class="field-label" for="paperScore">Original Score (out of 25)</label>
+        <input type="number" id="paperScore" placeholder="" min="0" max="25" step="1" oninput="saveIdentity()">
+      </div>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+      <label class="field-label" style="margin:0;">Select Every Question You Missed (or Want to Practice):</label>
+      <div style="display:flex; gap:8px;">
+        <button type="button" class="btn btn-light" style="padding:5px 10px; font-size:0.8rem;" onclick="selectTrapsPreset()">Select Top 6 Traps</button>
+        <button type="button" class="btn btn-light" style="padding:5px 10px; font-size:0.8rem;" onclick="clearSelection()">Clear All</button>
+      </div>
+    </div>
+
+    <div id="questionGrid" class="q-grid"></div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <div id="setupSummary" style="font-weight:700; color:var(--primary-dark);">0 questions selected</div>
+      <button type="button" class="btn btn-primary" onclick="startWorkspace()">Begin Guided Corrections &rarr;</button>
+    </div>
+  </section>
+
+  <!-- VIEW 2: WORKSPACE -->
+  <section id="viewWorkspace" class="hidden">
+    <div class="card card-accent-teal" style="padding:16px 20px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div>
+          <strong id="wsHeaderName">Student</strong>
+          <span id="wsHeaderMeta" style="color:var(--ink-muted); font-size:0.88rem; margin-left:8px;"></span>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <button type="button" class="btn btn-light" onclick="switchView('setup')">&larr; Edit Selection</button>
+          <button type="button" class="btn btn-teal" onclick="switchView('ticket')">Retest Ticket &amp; Submit &rarr;</button>
+        </div>
+      </div>
+      <div class="progress-bar-wrap"><div id="wsProgressFill" class="progress-bar-fill" style="width:0%"></div></div>
+      <div id="wsProgressLabel" style="font-size:0.84rem; font-weight:700; color:var(--ink-muted);">0 of 0 questions completed</div>
+    </div>
+
+    <div id="qTabs" class="q-tabs"></div>
+    <div id="activeQuestionCard" class="card"></div>
+  </section>
+
+  <!-- VIEW 3: RETEST TICKET & SUBMIT -->
+  <section id="viewTicket" class="hidden">
+    <div class="card card-accent-amber">
+      <div class="no-print" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+        <button type="button" class="btn btn-light" onclick="switchView('workspace')">&larr; Back to Corrections</button>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button type="button" class="btn btn-primary" id="submitSheetBtn" onclick="submitToGoogleSheet()">Submit Corrections to Class Sheet</button>
+          <button type="button" class="btn btn-light" onclick="window.print()">Print / Save PDF Ticket</button>
+        </div>
+      </div>
+
+      <div id="submitBanner" class="notice notice-info hidden"></div>
+
+      <div id="ticketContent" class="ticket-box"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- REFERENCE MODAL (3 distinct sections) -->
+<div id="refModal" class="modal-backdrop" onclick="if(event.target===this) closeRefModal()">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 style="margin:0; font-size:1.2rem;">Pre-AP Chemistry Unit 2 Reference Sheet</h2>
+      <button type="button" class="btn btn-light" onclick="closeRefModal()">Close</button>
+    </div>
+
+    <div class="ref-section">
+      <h3>1. Lewis Structures, Ion Electron Counts &amp; VSEPR Shape</h3>
+      <p style="margin:0 0 6px;"><strong>Valence Electron Rule for Polyatomic Ions:</strong> Electrons carry negative charge. <strong>Anions (-)</strong> ADD electrons; <strong>Cations (+)</strong> SUBTRACT electrons. Example: NH<sub>4</sub><sup>+</sup> = 5 + 4(1) - 1 = 8 e<sup>-</sup>; OH<sup>-</sup> = 6 + 1 + 1 = 8 e<sup>-</sup>.</p>
+      <p style="margin:0 0 6px;"><strong>Octet Verification:</strong> Main-group atoms (C, N, O, F, S, P, Cl) require 8 surrounding electrons (bonding pairs + lone pairs).</p>
+      <table class="ref-table">
+        <tr><th>Total Domains on Central Atom</th><th>Bonding / Lone Pairs</th><th>Molecular Geometry</th><th>Polarity Tip</th></tr>
+        <tr><td>4 domains</td><td>4 bonds, 0 LP</td><td>Tetrahedral (109.5&deg;)</td><td>Nonpolar only if all 4 terminal atoms are identical (CF<sub>4</sub>); asymmetrical (CH<sub>2</sub>Cl<sub>2</sub>, CHF<sub>3</sub>) is polar!</td></tr>
+        <tr><td>4 domains</td><td>3 bonds, 1 LP</td><td>Trigonal Pyramidal</td><td>Polar (e.g., NH<sub>3</sub>, PF<sub>3</sub>) due to lone pair asymmetry</td></tr>
+        <tr><td>4 domains</td><td>2 bonds, 2 LP</td><td>Bent (~104.5&deg;)</td><td>Polar (e.g., H<sub>2</sub>O, oxygen in -OH)</td></tr>
+        <tr><td>3 domains</td><td>3 bonds, 0 LP</td><td>Trigonal Planar (120&deg;)</td><td>Carbon with one C=O double bond &amp; two single bonds (0 LP)</td></tr>
+      </table>
+    </div>
+
+    <div class="ref-section" style="border-left-color:var(--amber);">
+      <h3 style="color:#92400e;">2. Ionic Naming, Polyatomic Ions &amp; Coulomb's Law</h3>
+      <p style="margin:0 0 6px;"><strong>Naming Rules:</strong> Metal + nonmetal = Ionic (NO Greek prefixes like <em>di-</em> or <em>tri-</em>; MgCl<sub>2</sub> = magnesium chloride). Transition metal Roman numerals like (III) state the <strong>ion charge</strong> (Fe<sup>3+</sup> + 3 Br<sup>-</sup> &rarr; FeBr<sub>3</sub>), NEVER the metal subscript. Always reduce ratios (Cu<sup>2+</sup> + SO<sub>4</sub><sup>2-</sup> &rarr; CuSO<sub>4</sub>).</p>
+      <p style="margin:0 0 6px;"><strong>Core Polyatomic Ions:</strong> SO<sub>4</sub><sup>2-</sup> (sulfate), CO<sub>3</sub><sup>2-</sup> (carbonate), NO<sub>3</sub><sup>-</sup> (nitrate), OH<sup>-</sup> (hydroxide), PO<sub>4</sub><sup>3-</sup> (phosphate), NH<sub>4</sub><sup>+</sup> (ammonium).</p>
+      <p style="margin:0;"><strong>Coulomb's Law (Melting Point):</strong> Lattice attraction grows with higher ion charges and smaller ion radii. <strong>Step 1:</strong> Compare charges (|+2 &times; -2| = 4 beats |+1 &times; -1| = 1, so CaO &gt; LiF). <strong>Step 2:</strong> Only break ties using smaller radius (Cl<sup>-</sup> &lt; I<sup>-</sup> &rarr; NaCl &gt; NaI).</p>
+    </div>
+
+    <div class="ref-section" style="border-left-color:var(--teal);">
+      <h3 style="color:#0f766e;">3. Intermolecular Forces, Isomers &amp; Material Properties</h3>
+      <p style="margin:0 0 6px;"><strong>IMF Hierarchy (strongest to weakest):</strong> Hydrogen bonding (molecules with H directly bonded to N, O, or F &rarr; e.g., ethanol CH<sub>3</sub>CH<sub>2</sub>OH vs. dimethyl ether CH<sub>3</sub>OCH<sub>3</sub>) &gt; Dipole-Dipole (polar molecules like CH<sub>3</sub>Cl) &gt; London Dispersion Forces (only IMF in nonpolar CH<sub>4</sub>).</p>
+      <p style="margin:0 0 6px;"><strong>Structural Isomers:</strong> Same molecular formula (e.g., C<sub>4</sub>H<sub>10</sub> or C<sub>2</sub>H<sub>6</sub>O), different atom connectivity &rarr; different boiling points &amp; properties.</p>
+      <p style="margin:0;"><strong>Conductivity &amp; Brittleness:</strong> Ionic solids lock ions in a fixed lattice (nonconducting; hammering shifts layers so like charges align &amp; repel &rarr; shatters). Molten or aqueous ionic salts have mobile ions and conduct electricity.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TEACHER SETTINGS MODAL (Ctrl+Shift+S) -->
+<div id="settingsModal" class="modal-backdrop" onclick="if(event.target===this) closeSettingsModal()">
+  <div class="modal" style="max-width:560px;">
+    <div class="modal-head">
+      <h2 style="margin:0; font-size:1.1rem;">Teacher Tracker Endpoint Settings</h2>
+      <button type="button" class="btn btn-light" onclick="closeSettingsModal()">Close</button>
+    </div>
+    <p style="font-size:0.88rem; color:var(--ink-muted); margin-top:0;">Shortcut: <code>Ctrl+Shift+S</code>. Submissions POST asynchronously to the active Student Work Tracker endpoint and automatically appear in the dedicated <strong>CP2 Retest Submissions</strong> tab.</p>
+    <label class="field-label" for="scriptUrlInput">Google Apps Script Web App URL</label>
+    <input type="text" id="scriptUrlInput" style="margin-bottom:14px;">
+    <div style="display:flex; justify-content:flex-end; gap:10px;">
+      <button type="button" class="btn btn-light" onclick="resetScriptUrl()">Restore Default</button>
+      <button type="button" class="btn btn-primary" onclick="saveScriptUrl()">Save Endpoint</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const DEFAULT_GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzzRX-NOgNCJQOptua1X1LJkt92CPDNsTviQH8gtTisnCZCH1PVxf19VlRSZZ7RZ9sHhw/exec";
+const STORAGE_KEY = "chem_u2_cp2_corrections_v1";
+const SCRIPT_URL_KEY = "chem_u2_cp2_script_url";
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function hashString(str) {
+  let h = 2166136261;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function pickVariant(qId, pool) {
+  const seedName = (appState.studentName || "student").trim().toLowerCase();
+  const idx = hashString(seedName + ":" + qId) % pool.length;
+  return pool[idx];
+}
+
+// Inline crisp SVGs for visual test questions
+const SVGS = {
+  Q1: `<svg width="560" height="230" viewBox="0 0 560 230" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;font-family:Segoe UI,Arial,sans-serif;">
+    <rect x="4" y="4" width="268" height="106" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="14" y="24" font-size="13" font-weight="700" fill="#0f172a">Diagram A (CO₂)</text>
+    <text x="138" y="62" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">:Ö — C̈ — Ö:</text>
+    <text x="138" y="88" text-anchor="middle" font-size="11" fill="#be123c">Single bonds + dots on C (incomplete octets / wrong e⁻ count)</text>
+
+    <rect x="288" y="4" width="268" height="106" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="298" y="24" font-size="13" font-weight="700" fill="#0f766e">Diagram B (CO₂)</text>
+    <text x="422" y="62" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">:O = C = O:</text>
+    <text x="422" y="88" text-anchor="middle" font-size="11" fill="#0f766e">2 lone pairs on each O (16 valence e⁻, all 3 atoms = 8 e⁻)</text>
+
+    <rect x="4" y="120" width="268" height="106" rx="8" fill="#fff1f2" stroke="#fda4af"/>
+    <text x="14" y="140" font-size="13" font-weight="700" fill="#be123c">Diagram C (SO₂)</text>
+    <text x="138" y="178" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">:Ö — S̈ — Ö:</text>
+    <text x="138" y="204" text-anchor="middle" font-size="11" fill="#be123c">3 lone pairs per O + 1 LP on S &rarr; central S has ONLY 6 e⁻!</text>
+
+    <rect x="288" y="120" width="268" height="106" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="298" y="140" font-size="13" font-weight="700" fill="#0f766e">Diagram D (SO₂)</text>
+    <text x="422" y="178" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">:O = S̈ — Ö:</text>
+    <text x="422" y="204" text-anchor="middle" font-size="11" fill="#0f766e">2 LP left O, 1 LP on S, 3 LP right O (18 e⁻, S = 8 e⁻!)</text>
+  </svg>`,
+  Q4: `<svg width="210" height="150" viewBox="0 0 210 150" xmlns="http://www.w3.org/2000/svg" style="font-family:Segoe UI,Arial,sans-serif;">
+    <text x="105" y="28" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">Cl</text>
+    <line x1="105" y1="34" x2="105" y2="56" stroke="#334155" stroke-width="2"/>
+    <text x="44" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">H</text>
+    <line x1="56" y1="73" x2="88" y2="73" stroke="#334155" stroke-width="2"/>
+    <text x="105" y="80" text-anchor="middle" font-size="18" font-weight="800" fill="#005b96">C</text>
+    <line x1="122" y1="73" x2="154" y2="73" stroke="#334155" stroke-width="2"/>
+    <text x="166" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">H</text>
+    <line x1="105" y1="90" x2="105" y2="112" stroke="#334155" stroke-width="2"/>
+    <text x="105" y="132" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">Cl</text>
+  </svg>`,
+  Q9: `<svg width="290" height="155" viewBox="0 0 290 155" xmlns="http://www.w3.org/2000/svg" style="font-family:Segoe UI,Arial,sans-serif;">
+    <rect x="10" y="10" width="175" height="135" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.5"/>
+    <circle cx="38" cy="36" r="10" fill="#0f172a"/><circle cx="72" cy="36" r="14" fill="#dc2626"/>
+    <circle cx="110" cy="36" r="10" fill="#0f172a"/><circle cx="148" cy="36" r="14" fill="#dc2626"/>
+    <circle cx="38" cy="76" r="14" fill="#dc2626"/><circle cx="76" cy="76" r="10" fill="#0f172a"/>
+    <circle cx="112" cy="76" r="14" fill="#dc2626"/><circle cx="150" cy="76" r="14" fill="#dc2626"/>
+    <circle cx="38" cy="116" r="10" fill="#0f172a"/><circle cx="74" cy="116" r="14" fill="#dc2626"/>
+    <circle cx="110" cy="116" r="10" fill="#0f172a"/><circle cx="148" cy="116" r="14" fill="#dc2626"/>
+    <circle cx="62" cy="56" r="10" fill="#0f172a"/><circle cx="128" cy="100" r="14" fill="#dc2626"/>
+    <circle cx="205" cy="48" r="10" fill="#0f172a"/><text x="222" y="53" font-size="13" font-weight="700" fill="#0f172a">= Fe³⁺ (6 ions)</text>
+    <circle cx="205" cy="86" r="14" fill="#dc2626"/><text x="226" y="91" font-size="13" font-weight="700" fill="#dc2626">= O²⁻ (8 ions)</text>
+    <text x="196" y="122" font-size="11.5" fill="#475569">Count every charge!</text>
+  </svg>`,
+  Q11: `<svg width="400" height="150" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;font-family:Segoe UI,Arial,sans-serif;">
+    <text x="38" y="34" font-size="15" font-weight="700" fill="#334155">H</text>
+    <line x1="52" y1="36" x2="78" y2="62" stroke="#334155" stroke-width="2"/>
+    <text x="38" y="120" font-size="15" font-weight="700" fill="#334155">H</text>
+    <line x1="52" y1="106" x2="78" y2="82" stroke="#334155" stroke-width="2"/>
+    <text x="90" y="79" text-anchor="middle" font-size="16" font-weight="800" fill="#005b96">N<tspan font-size="11" dy="4">w</tspan></text>
+    <line x1="110" y1="73" x2="152" y2="73" stroke="#334155" stroke-width="2"/>
+    <text x="170" y="34" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">H</text>
+    <line x1="170" y1="38" x2="170" y2="57" stroke="#334155" stroke-width="2"/>
+    <text x="170" y="79" text-anchor="middle" font-size="16" font-weight="800" fill="#005b96">C<tspan font-size="11" dy="4">x</tspan></text>
+    <line x1="170" y1="88" x2="170" y2="108" stroke="#334155" stroke-width="2"/>
+    <text x="170" y="126" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">H</text>
+    <line x1="190" y1="73" x2="232" y2="73" stroke="#334155" stroke-width="2"/>
+    <text x="252" y="79" text-anchor="middle" font-size="16" font-weight="800" fill="#0d9488">C<tspan font-size="11" dy="4">y</tspan></text>
+    <line x1="249" y1="56" x2="249" y2="34" stroke="#334155" stroke-width="2"/>
+    <line x1="256" y1="56" x2="256" y2="34" stroke="#334155" stroke-width="2"/>
+    <text x="252" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#334155">O</text>
+    <line x1="272" y1="73" x2="308" y2="73" stroke="#334155" stroke-width="2"/>
+    <text x="326" y="79" text-anchor="middle" font-size="16" font-weight="800" fill="#d97706">O<tspan font-size="11" dy="4">z</tspan></text>
+    <line x1="344" y1="73" x2="368" y2="73" stroke="#334155" stroke-width="2"/>
+    <text x="380" y="79" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">H</text>
+    <text x="200" y="145" text-anchor="middle" font-size="11.5" fill="#64748b">(Lone pairs omitted on N and O in the test skeleton!)</text>
+  </svg>`,
+  Q12: `<svg width="460" height="150" viewBox="0 0 460 150" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;font-family:Segoe UI,Arial,sans-serif;">
+    <rect x="4" y="4" width="218" height="66" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="14" y="23" font-size="12" font-weight="700" fill="#475569">A (1st): H₂C=C(CH₃)₂</text>
+    <text x="14" y="46" font-size="12" fill="#0f172a">Double bond present &rarr; 8 H atoms</text>
+
+    <rect x="234" y="4" width="222" height="66" rx="6" fill="#f0fdfa" stroke="#0d9488"/>
+    <text x="244" y="23" font-size="12" font-weight="700" fill="#0f766e">B (2nd): CH₃–CH₂–CH₂–CH₃</text>
+    <text x="244" y="46" font-size="12" fill="#0f172a">Straight chain, all single bonds &rarr; C₄H₁₀</text>
+
+    <rect x="4" y="78" width="218" height="66" rx="6" fill="#f0fdfa" stroke="#0d9488"/>
+    <text x="14" y="97" font-size="12" font-weight="700" fill="#0f766e">C (3rd): CH₃–CH(CH₃)–CH₃</text>
+    <text x="14" y="120" font-size="12" fill="#0f172a">Branched chain, all single bonds &rarr; C₄H₁₀</text>
+
+    <rect x="234" y="78" width="222" height="66" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="244" y="97" font-size="12" font-weight="700" fill="#475569">D (4th): H₂C=CH–CH=CH₂</text>
+    <text x="244" y="120" font-size="12" fill="#0f172a">Two double bonds &rarr; 6 H atoms</text>
+  </svg>`
+};
+
+// All 25 Questions Metadata & Guided Steps
+const QUESTIONS = [
+  {
+    id: "Q1", topic: "CO₂ & SO₂ Lewis Diagrams", key: "D", highMiss: true,
+    stem: "Which diagram(s) correctly model the Lewis structure of CO₂ and SO₂?",
+    svg: SVGS.Q1,
+    steps: [
+      {
+        prompt: "Step 1 — Count total valence electrons first. What are the correct totals for CO₂ (C=4, O=6) and SO₂ (S=6, O=6)?",
+        type: "mc",
+        options: [
+          { v: "a", t: "CO₂ = 12 e⁻, SO₂ = 14 e⁻" },
+          { v: "b", t: "CO₂ = 16 e⁻, SO₂ = 18 e⁻" },
+          { v: "c", t: "CO₂ = 16 e⁻, SO₂ = 16 e⁻" },
+          { v: "d", t: "CO₂ = 18 e⁻, SO₂ = 18 e⁻" }
+        ],
+        correct: "b",
+        okMsg: "Correct! CO₂ has 4 + 2(6) = 16 valence e⁻, and SO₂ has 6 + 2(6) = 18 valence e⁻.",
+        errHint: "Recount: Carbon is in Group 14 (4 e⁻), and both Sulfur & Oxygen are in Group 16 (6 e⁻ each)."
+      },
+      {
+        prompt: "Step 2 — Check EVERY atom's octet. Why is Diagram C (SO₂) WRONG even though it shows 18 electrons?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Sulfur only touches 6 electrons (two single bonds + one lone pair), violating the octet rule." },
+          { v: "b", t: "SO₂ must have two double bonds and zero lone pairs." },
+          { v: "c", t: "Oxygen should only have 4 valence electrons." }
+        ],
+        correct: "a",
+        okMsg: "Nailed it! Only Diagram B (CO₂) and Diagram D (SO₂ with one S=O double bond so S has 8 e⁻) give every atom a full octet &rarr; Answer D.",
+        errHint: "Count the bonds and dots directly touching Sulfur in Diagram C: 2 single bonds (4 e⁻) + 1 lone pair (2 e⁻) = 6 e⁻!"
+      }
+    ],
+    transferPool: [
+      { q: "Transfer Check: How many total valence electrons belong in O₃ (ozone, O=6)?", ans: "18" },
+      { q: "Transfer Check: How many total valence electrons belong in CS₂ (C=4, S=6)?", ans: "16" },
+      { q: "Transfer Check: How many total valence electrons belong in NO₂⁻ (N=5, O=6, charge=-1)?", ans: "18" }
+    ]
+  },
+  {
+    id: "Q2", topic: "NH₃ Polarity Model", key: "A", highMiss: false,
+    stem: "Ammonia (NH₃) has a trigonal pyramidal shape with one lone pair on Nitrogen. Is NH₃ polar or nonpolar, and why?",
+    steps: [
+      {
+        prompt: "Step 1 — Compare electronegativity: Nitrogen (3.0) vs. Hydrogen (2.2). Where do shared electrons spend more time?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Equally shared at the exact center of each N–H bond." },
+          { v: "b", t: "Pulled toward the more electronegative Nitrogen atom, plus Nitrogen carries a lone pair." },
+          { v: "c", t: "Pulled away toward Hydrogen atoms." }
+        ],
+        correct: "b",
+        okMsg: "Correct! Unequal sharing pulls electron density toward Nitrogen.",
+        errHint: "Electronegativity measures electron pull: N (3.0) > H (2.2)."
+      },
+      {
+        prompt: "Step 2 — Because NH₃ is trigonal pyramidal (asymmetrical), what is the correct final conclusion?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Polar, because the molecule has an uneven distribution of electrons (Answer A)." },
+          { v: "b", t: "Nonpolar, because all three N–H bonds cancel out in 3D." }
+        ],
+        correct: "a",
+        okMsg: "Exact! Asymmetrical lone pair + N–H bond dipoles do not cancel &rarr; NH₃ is polar (Answer A).",
+        errHint: "A trigonal pyramidal molecule points all three H bonds downward away from the top lone pair."
+      }
+    ]
+  },
+  {
+    id: "Q3", topic: "CH₃Cl vs CH₄ IMFs", key: "A", highMiss: false,
+    stem: "Why do chloromethane (CH₃Cl) molecules attract each other more strongly than methane (CH₄) molecules?",
+    steps: [
+      {
+        prompt: "Step 1 — Compare polarity: CH₄ is completely symmetrical with 4 H atoms, while CH₃Cl replaces one H with a very electronegative Cl.",
+        type: "mc",
+        options: [
+          { v: "a", t: "CH₄ is nonpolar (only LDFs), while CH₃Cl is polar (permanent dipole)." },
+          { v: "b", t: "Both CH₄ and CH₃Cl are nonpolar." },
+          { v: "c", t: "CH₃Cl forms ionic bonds between molecules." }
+        ],
+        correct: "a",
+        okMsg: "Right! The polar C–Cl bond creates a permanent dipole in CH₃Cl.",
+        errHint: "Four identical C–H bonds cancel out; three H's and one Cl do not."
+      },
+      {
+        prompt: "Step 2 — Which IMF explanation correctly distinguishes CH₃Cl from CH₄ (Answer A)?",
+        type: "mc",
+        options: [
+          { v: "a", t: "CH₃Cl experiences dipole-dipole forces (polar C–Cl bond), while CH₄ has only weaker London dispersion forces." },
+          { v: "b", t: "CH₃Cl forms hydrogen bonds between C–H hydrogens and Cl." }
+        ],
+        correct: "a",
+        okMsg: "Correct! Remember H-bonding requires H bonded directly to N, O, or F—not C or Cl. CH₃Cl relies on dipole-dipole attractions (Answer A).",
+        errHint: "Careful: Cl does not qualify for hydrogen bonding, and H is bonded to C."
+      }
+    ]
+  },
+  {
+    id: "Q4", topic: "CH₂Cl₂ 3D Polarity", key: "C", highMiss: true,
+    stem: "A student looks at the 2D Lewis drawing of CH₂Cl₂ and claims it is NONPOLAR because the two Cl atoms appear opposite each other. Evaluate the claim.",
+    svg: SVGS.Q4,
+    steps: [
+      {
+        prompt: "Step 1 — How many electron domains (bonding groups + lone pairs) surround the central Carbon atom in CH₂Cl₂?",
+        type: "mc",
+        options: [
+          { v: "a", t: "2 domains (linear)" },
+          { v: "b", t: "4 bonding domains, 0 lone pairs &rarr; Tetrahedral (109.5°)" },
+          { v: "c", t: "4 domains &rarr; Flat square planar (90°)" }
+        ],
+        correct: "b",
+        okMsg: "Correct! Carbon forms 4 single bonds and has 0 lone pairs, so its real 3D shape is tetrahedral (109.5°).",
+        errHint: "Four single-bonded groups around Carbon maximize separation in 3D space (109.5°), NOT a flat 90° plane."
+      },
+      {
+        prompt: "Step 2 — In a 3D tetrahedron, are ANY two corners 180° opposite one another?",
+        type: "mc",
+        options: [
+          { v: "a", t: "No — every pair of bonds is ~109.5° adjacent, so the two C–Cl dipoles NEVER cancel &rarr; student is incorrect (Answer C)." },
+          { v: "b", t: "Yes — the two Cl atoms stay 180° apart and cancel out." }
+        ],
+        correct: "a",
+        okMsg: "Spot on! CH₂Cl₂ is polar in 3D; the flat cross drawing is misleading (Answer C).",
+        errHint: "Visualize a 3D pyramid base (tetrahedron): every bond angle is 109.5°, so Cl atoms always sit on one side."
+      }
+    ],
+    transferPool: [
+      { q: "Transfer Check: Is CCl₄ (4 identical Cl atoms around C) polar or nonpolar? Type 'polar' or 'nonpolar'.", ans: "nonpolar" },
+      { q: "Transfer Check: Is CHCl₃ (1 H, 3 Cl around C) polar or nonpolar? Type 'polar' or 'nonpolar'.", ans: "polar" },
+      { q: "Transfer Check: Is CF₂Cl₂ (2 F, 2 Cl around C) polar or nonpolar? Type 'polar' or 'nonpolar'.", ans: "polar" }
+    ]
+  },
+  {
+    id: "Q5", topic: "KBr vs IBr Bond Type", key: "C", highMiss: false,
+    stem: "Substance 1 (K & Br) melts at 734 °C. Substance 2 (I & Br) melts at 40 °C. Which identifies Substance 2?",
+    steps: [
+      {
+        prompt: "Step 1 — Classify the elements in Substance 2: Iodine (I) + Bromine (Br).",
+        type: "mc",
+        options: [
+          { v: "a", t: "Metal + nonmetal &rarr; Ionic" },
+          { v: "b", t: "Two nonmetals &rarr; Covalent molecule" }
+        ],
+        correct: "b",
+        okMsg: "Yes! Both I and Br are Group 17 nonmetals sharing electrons.",
+        errHint: "Check the Periodic Table: K (Group 1) is a metal, whereas I and Br are both halogens (nonmetals)."
+      },
+      {
+        prompt: "Step 2 — Match bonding type to melting point: Why does Substance 2 melt at only 40 °C (Answer C)?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Covalent bonding — weak IMFs between neutral IBr molecules take little heat to separate." },
+          { v: "b", t: "Ionic bonding — lattice bonds are weaker than covalent bonds." }
+        ],
+        correct: "a",
+        okMsg: "Correct! Molecular covalent substances have much lower melting points than ionic lattices (Answer C).",
+        errHint: "Melting covalent IBr only breaks weak intermolecular attractions between molecules, not covalent bonds."
+      }
+    ]
+  },
+  {
+    id: "Q6", topic: "Unknown Lab Solids", key: "D", highMiss: false,
+    stem: "Unknown X does not conduct as a solid or aqueous solution and melts below 100 °C. Unknown Z dissolves to conduct electricity and melts above 800 °C. Identify X and Z.",
+    steps: [
+      {
+        prompt: "Step 1 — Unknown X has low melting point (<100 °C) and ZERO conductivity even dissolved. What type of bonding forms neutral molecules without mobile ions?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Covalent" },
+          { v: "b", t: "Ionic" },
+          { v: "c", t: "Metallic" }
+        ],
+        correct: "a",
+        okMsg: "Right! X is covalent.",
+        errHint: "Dissolved ionic compounds break into ions that conduct electricity; metals conduct as solids."
+      },
+      {
+        prompt: "Step 2 — Unknown Z conducts in water (mobile ions) and melts >800 °C. Combine X and Z (Answer D):",
+        type: "mc",
+        options: [
+          { v: "a", t: "X = Ionic, Z = Covalent" },
+          { v: "b", t: "X = Covalent, Z = Ionic" }
+        ],
+        correct: "b",
+        okMsg: "Exact! X is Covalent and Z is Ionic (Answer D).",
+        errHint: "Match X (<100°C, nonconducting) and Z (>800°C, conducting solution)."
+      }
+    ]
+  },
+  {
+    id: "Q7", topic: "Coulomb's Law: LiF vs CaO", key: "D", highMiss: true,
+    stem: "LiF (848 °C) has smaller ions than CaO (2572 °C), yet LiF melts at a much lower temperature. Why?",
+    steps: [
+      {
+        prompt: "Step 1 — Write the ion charges in both compounds before looking at ion sizes.",
+        type: "mc",
+        options: [
+          { v: "a", t: "Li⁺ (+1) & F⁻ (-1) vs. Ca²⁺ (+2) & O²⁻ (-2)" },
+          { v: "b", t: "Li²⁺ (+2) & F²⁻ (-2) vs. Ca⁺ (+1) & O⁻ (-1)" }
+        ],
+        correct: "a",
+        okMsg: "Correct! Group 1/17 = +1/-1; Group 2/16 = +2/-2.",
+        errHint: "Li is Group 1 (+1), F is Group 17 (-1); Ca is Group 2 (+2), O is Group 16 (-2)."
+      },
+      {
+        prompt: "Step 2 — Apply Coulomb's Law F ~ (q₁ &times; q₂)/d². Why is LiF's lattice weaker than CaO's (Answer D)?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Smaller Li⁺ and F⁻ ions make attraction weaker." },
+          { v: "b", t: "LiF has smaller ion charges (+1/-1 vs +2/-2), creating much weaker electrostatic attraction even though its ions are smaller." }
+        ],
+        correct: "b",
+        okMsg: "Boom! Charge factor (+2 &times; -2 = 4 vs +1 &times; -1 = 1) beats radius difference every time (Answer D).",
+        errHint: "Smaller distance actually INCREASES attraction; only smaller charges (+1/-1) explain why LiF melts lower!"
+      }
+    ],
+    transferPool: [
+      { q: "Transfer Check: Between NaF (+1/-1) and MgO (+2/-2), which has the HIGHER melting point? Type 'NaF' or 'MgO'.", ans: "MgO" },
+      { q: "Transfer Check: Between KCl (+1/-1) and CaS (+2/-2), which has the HIGHER melting point? Type 'KCl' or 'CaS'.", ans: "CaS" },
+      { q: "Transfer Check: Between RbBr (+1/-1) and SrO (+2/-2), which has the HIGHER melting point? Type 'RbBr' or 'SrO'.", ans: "SrO" }
+    ]
+  },
+  {
+    id: "Q8", topic: "Coulomb Size Tie-Breaker", key: "B", highMiss: true,
+    stem: "Why is the melting point of NaCl (801 °C) higher than that of NaI (661 °C)?",
+    steps: [
+      {
+        prompt: "Step 1 — Compare the ion charges in NaCl and NaI first.",
+        type: "mc",
+        options: [
+          { v: "a", t: "They tie (+1 and -1 in both), so ion radius decides the winner!" },
+          { v: "b", t: "Cl⁻ has a -2 charge while I⁻ has a -1 charge." }
+        ],
+        correct: "a",
+        okMsg: "Correct! Since both are Group 1 + Group 17 salts (+1/-1), charges are equal, so we go to Step 2 (size).",
+        errHint: "Cl and I are both in Group 17 (halogens), so both form -1 anions."
+      },
+      {
+        prompt: "Step 2 — Compare Cl⁻ vs. I⁻ size in Group 17. Why does NaCl melt higher (Answer B)?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Cl⁻ is larger than I⁻, spreading charges further apart." },
+          { v: "b", t: "Cl⁻ has fewer energy levels so it is SMALLER than I⁻, letting Na⁺ and Cl⁻ pack closer with stronger attraction." }
+        ],
+        correct: "b",
+        okMsg: "Exact! Smaller distance d in Coulomb's law gives a stronger crystal lattice (Answer B).",
+        errHint: "Atomic/ionic radius increases going DOWN Group 17 (Cl is above I, so Cl⁻ is smaller)."
+      }
+    ],
+    transferPool: [
+      { q: "Transfer Check: Both are +1/-1 salts: between KF and KBr, which has the HIGHER melting point? Type 'KF' or 'KBr'.", ans: "KF" },
+      { q: "Transfer Check: Both are +1/-1 salts: between LiCl and LiI, which has the HIGHER melting point? Type 'LiCl' or 'LiI'.", ans: "LiCl" },
+      { q: "Transfer Check: Both are +1/-1 salts: between NaF and NaBr, which has the HIGHER melting point? Type 'NaF' or 'NaBr'.", ans: "NaF" }
+    ]
+  },
+  {
+    id: "Q9", topic: "Fe³⁺ / O²⁻ Crystal Model", key: "C", highMiss: false,
+    stem: "Identify the error in the particle model containing 6 Fe³⁺ (black) ions and 8 O²⁻ (red) ions.",
+    svg: SVGS.Q9,
+    steps: [
+      {
+        prompt: "Step 1 — Calculate the total positive charge (6 Fe³⁺) and total negative charge (8 O²⁻) shown in the box.",
+        type: "mc",
+        options: [
+          { v: "a", t: "Total (+) = +18, Total (-) = -16 &rarr; Net charge = +2 (NOT zero!)" },
+          { v: "b", t: "Total (+) = +12, Total (-) = -12 &rarr; Net charge = 0" },
+          { v: "c", t: "Total (+) = +6, Total (-) = -8 &rarr; Net charge = -2" }
+        ],
+        correct: "a",
+        okMsg: "Nice math! +18 and -16 leave a net +2 charge—impossible for a neutral ionic solid.",
+        errHint: "Multiply ion count by ion charge: 6 &times; (+3) vs 8 &times; (-2)."
+      },
+      {
+        prompt: "Step 2 — Which conclusion matches Answer C?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Incorrect because cations and anions must have identical radii." },
+          { v: "b", t: "Incorrect because total positive charge does NOT equal total negative charge (Fe₂O₃ requires a 2:3 ratio, e.g., 4 Fe³⁺ + 6 O²⁻)." }
+        ],
+        correct: "b",
+        okMsg: "Spot on! Ionic solids must always be electrically neutral (Answer C).",
+        errHint: "Cations (Fe³⁺) are actually smaller than anions (O²⁻) in reality; the error here is charge imbalance."
+      }
+    ],
+    transferPool: [
+      { q: "Transfer Check: In a valid neutral model of Al₂O₃ containing 6 Al³⁺ ions, how many O²⁻ ions are needed?", ans: "9" },
+      { q: "Transfer Check: In a valid neutral model of Fe₂O₃ containing 4 Fe³⁺ ions, how many O²⁻ ions are needed?", ans: "6" }
+    ]
+  },
+  {
+    id: "Q10", topic: "SO₂ Particle Diagram", key: "C", highMiss: false,
+    stem: "Which particle diagram accurately represents a sample of sulfur dioxide (SO₂)?",
+    steps: [
+      {
+        prompt: "Step 1 — Should SO₂ be drawn as a continuous repeating crystal lattice or as separate discrete molecules?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Continuous repeating 3D crystal lattice" },
+          { v: "b", t: "Separate discrete molecules (two nonmetals = molecular covalent)" }
+        ],
+        correct: "b",
+        okMsg: "Correct! Covalent compounds form separate molecules, not extended ionic lattices.",
+        errHint: "Both S and O are nonmetals, so SO₂ is a covalent molecule (gas at room temp)."
+      },
+      {
+        prompt: "Step 2 — In each SO₂ molecule, what atom ratio and shape must the circles show (Answer C)?",
+        type: "mc",
+        options: [
+          { v: "a", t: "1 sulfur atom bonded to 2 oxygen atoms (bent discrete molecules)" },
+          { v: "b", t: "2 sulfur atoms bonded to 1 oxygen atom" }
+        ],
+        correct: "a",
+        okMsg: "Yes! Diagram C shows discrete 1-S : 2-O bent molecules (Answer C).",
+        errHint: "SO₂ has 1 S and 2 O atoms per molecule."
+      }
+    ]
+  },
+  {
+    id: "Q11", topic: "Glycine Geometry (Cᵧ)", key: "C", highMiss: true,
+    stem: "In the Lewis structure of glycine (NH₂–CH₂–COOH), which labeled atom has a TRIGONAL PLANAR geometry?",
+    svg: SVGS.Q11,
+    steps: [
+      {
+        prompt: "Step 1 — Restore the hidden lone pairs on Nitrogen (Nw) and Oxygen (Oz)! How many domains does EACH atom really have?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Nw: 3 bonds + 1 LP (4); Cx: 4 bonds (4); Cy: 3 bonds + 0 LP (3); Oz: 2 bonds + 2 LP (4)" },
+          { v: "b", t: "Nw: 3 bonds + 0 LP (3); Cx: 4 bonds (4); Cy: 3 bonds (3); Oz: 2 bonds + 0 LP (2)" }
+        ],
+        correct: "a",
+        okMsg: "Critical catch! N brings 1 lone pair and O brings 2 lone pairs even when skeletal diagrams omit dots.",
+        errHint: "Count normal neutral bonding: N needs 8 e⁻ (3 bonds + 1 LP = 4 domains); O needs 8 e⁻ (2 bonds + 2 LP = 4 domains)."
+      },
+      {
+        prompt: "Step 2 — Which labeled atom has exactly 3 electron domains and 0 lone pairs &rarr; Trigonal Planar (Answer C)?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Nw (3 bonds + 1 LP = trigonal pyramidal)" },
+          { v: "b", t: "Cy (1 C=O double bond + 2 single bonds + 0 LP = 3 domains &rarr; trigonal planar)" },
+          { v: "c", t: "Oz (2 bonds + 2 LP = bent)" }
+        ],
+        correct: "b",
+        okMsg: "Nailed it! Double bonds count as ONE electron domain, so Cy has 3 domains and 0 lone pairs &rarr; Trigonal Planar (Answer C).",
+        errHint: "Only 3 domains + 0 lone pairs makes a flat 120° trigonal planar center."
+      }
+    ],
+    transferPool: [
+      { q: "Transfer Check: How many electron domains surround a Carbon with one C=O bond, two single bonds, and 0 lone pairs? Type a number.", ans: "3" },
+      { q: "Transfer Check: How many hidden lone pairs belong on an Oxygen atom forming two single bonds (-O-)? Type a number.", ans: "2" },
+      { q: "Transfer Check: How many hidden lone pairs belong on a Nitrogen atom forming three single bonds? Type a number.", ans: "1" }
+    ]
+  },
+  {
+    id: "Q12", topic: "C₄H₁₀ Structural Isomers", key: "BC", highMiss: false,
+    stem: "Select the TWO structures below that represent structural isomers of each other (multi-select).",
+    svg: SVGS.Q12,
+    steps: [
+      {
+        prompt: "Step 1 — Count Carbons AND Hydrogens in every structure! Why do A (H₂C=C(CH₃)₂) and D (H₂C=CH–CH=CH₂) fail?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Double bonds remove hydrogens: A is C₄H₈ and D is C₄H₆ — NOT the same formula!" },
+          { v: "b", t: "They contain oxygen atoms." }
+        ],
+        correct: "a",
+        okMsg: "Correct! Structural isomers MUST have the exact same molecular formula.",
+        errHint: "Count the H's carefully: each double bond removes 2 hydrogens."
+      },
+      {
+        prompt: "Step 2 — Which TWO structures share the exact same formula C₄H₁₀ with different connectivity (Answer BC)?",
+        type: "mc",
+        options: [
+          { v: "a", t: "B (straight-chain butane) and C (branched isobutane)" },
+          { v: "b", t: "A and B" }
+        ],
+        correct: "a",
+        okMsg: "Exact! Both B and C are C₄H₁₀ with different bonding arrangements (Answer BC).",
+        errHint: "Check the two middle cards: both have 4 carbons and 10 hydrogens."
+      }
+    ]
+  },
+  {
+    id: "Q13", topic: "PF₃ Molecular Geometry", key: "C", highMiss: false,
+    stem: "Determine the molecular geometry of phosphorus trifluoride (PF₃).",
+    steps: [
+      {
+        prompt: "Step 1 — Count valence electrons in PF₃ (P=5, F=7 &times; 3). After drawing 3 P–F bonds and giving each F 3 lone pairs (24 e⁻), how many e⁻ remain as a lone pair on P?",
+        type: "mc",
+        options: [
+          { v: "a", t: "0 lone pairs on P (24 total e⁻)" },
+          { v: "b", t: "1 lone pair on P (26 total e⁻)" },
+          { v: "c", t: "2 lone pairs on P (28 total e⁻)" }
+        ],
+        correct: "b",
+        okMsg: "Correct! 5 + 3(7) = 26 e⁻ &rarr; 3 bonds + 1 lone pair on Phosphorus.",
+        errHint: "Add 5 (P) + 21 (three F's) = 26 total valence electrons."
+      },
+      {
+        prompt: "Step 2 — What shape corresponds to 3 bonding pairs + 1 lone pair (4 total domains) on the central atom?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Trigonal planar" },
+          { v: "b", t: "Trigonal pyramidal (Answer C)" },
+          { v: "c", t: "Tetrahedral" }
+        ],
+        correct: "b",
+        okMsg: "Right! The lone pair pushes the 3 P–F bonds downward into a trigonal pyramid (Answer C).",
+        errHint: "Only 0 lone pairs gives trigonal planar; 1 lone pair on a 4-domain center makes a pyramid."
+      }
+    ]
+  },
+  {
+    id: "Q14", topic: "CF₄ vs CHF₃ Polarity", key: "A", highMiss: false,
+    stem: "Contrast CF₄ and CHF₃: both have tetrahedral geometry, yet one is nonpolar and one is polar. Why?",
+    steps: [
+      {
+        prompt: "Step 1 — Are individual C–F bonds polar?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Yes — Fluorine pulls electrons strongly from Carbon." },
+          { v: "b", t: "No — C and F have identical electronegativity." }
+        ],
+        correct: "a",
+        okMsg: "Yes, C–F is very polar!",
+        errHint: "F (4.0) is the most electronegative element compared to C (2.5)."
+      },
+      {
+        prompt: "Step 2 — Why is CF₄ nonpolar overall while CHF₃ is polar (Answer A)?",
+        type: "mc",
+        options: [
+          { v: "a", t: "CF₄'s 4 identical C–F dipoles pull symmetrically and cancel; CHF₃ has 1 C–H bond so dipoles do NOT cancel." },
+          { v: "b", t: "CF₄ is linear while CHF₃ is bent." }
+        ],
+        correct: "a",
+        okMsg: "Exact! Symmetry cancels identical bond dipoles in CF₄, leaving CHF₃ asymmetrical and polar (Answer A).",
+        errHint: "Swapping one F for an H breaks tetrahedral symmetry."
+      }
+    ]
+  },
+  {
+    id: "Q15", topic: "Hydrogen Bonding Molecule", key: "B", highMiss: false,
+    stem: "Which molecule among CH₄, H₂O, CO₂, and SF₆ exhibits strong hydrogen bonding between its own molecules?",
+    steps: [
+      {
+        prompt: "Step 1 — Recall the strict requirement for hydrogen bonding between identical molecules.",
+        type: "mc",
+        options: [
+          { v: "a", t: "Any molecule containing Hydrogen atoms" },
+          { v: "b", t: "Hydrogen covalently bonded directly to N, O, or F" }
+        ],
+        correct: "b",
+        okMsg: "Yes! H must be covalently attached directly to N, O, or F.",
+        errHint: "C–H bonds (like in CH₄) are nearly nonpolar and cannot hydrogen bond."
+      },
+      {
+        prompt: "Step 2 — Identify the molecule with direct O–H bonds (Answer B):",
+        type: "mc",
+        options: [
+          { v: "a", t: "CH₄" },
+          { v: "b", t: "H₂O" },
+          { v: "c", t: "SF₆" }
+        ],
+        correct: "b",
+        okMsg: "Correct! H₂O has O–H bonds enabling strong hydrogen bonding (Answer B).",
+        errHint: "Look for H bonded directly to O."
+      }
+    ]
+  },
+  {
+    id: "Q16", topic: "Ethanol vs Dimethyl Ether Isomers", key: "B", highMiss: false,
+    stem: "Why are ethanol (CH₃CH₂OH) and dimethyl ether (CH₃OCH₃) classified as structural isomers?",
+    steps: [
+      {
+        prompt: "Step 1 — Count the atoms in BOTH ethanol (CH₃CH₂OH) and dimethyl ether (CH₃OCH₃).",
+        type: "mc",
+        options: [
+          { v: "a", t: "Both equal C₂H₆O" },
+          { v: "b", t: "Ethanol is C₂H₆O, dimethyl ether is C₂H₄O" }
+        ],
+        correct: "a",
+        okMsg: "Right! Both count 2 C, 6 H, and 1 O.",
+        errHint: "Add all H's: 3 + 2 + 1 = 6 and 3 + 3 = 6."
+      },
+      {
+        prompt: "Step 2 — Complete the definition of structural isomers (Answer B):",
+        type: "mc",
+        options: [
+          { v: "a", t: "Same molecular formula (C₂H₆O), different connectivity (O–H at end vs C–O–C in middle)." },
+          { v: "b", t: "Different formulas but identical boiling points." }
+        ],
+        correct: "a",
+        okMsg: "Exact! Same formula + different bonding connectivity = structural isomers (Answer B).",
+        errHint: "Remember: isomers share formula, differ in connectivity."
+      }
+    ]
+  },
+  {
+    id: "Q17", topic: "Ethanol (78 °C) vs Ether (-24 °C)", key: "B", highMiss: false,
+    stem: "Ethanol boils at 78 °C while its isomer dimethyl ether boils at -24 °C. What explains this 102 °C difference?",
+    steps: [
+      {
+        prompt: "Step 1 — Compare the location of Hydrogen relative to Oxygen in both formulas.",
+        type: "mc",
+        options: [
+          { v: "a", t: "Ethanol has a direct O–H group; dimethyl ether only has C–H and C–O bonds." },
+          { v: "b", t: "Both molecules contain O–H groups." }
+        ],
+        correct: "a",
+        okMsg: "Correct! Only ethanol has an –OH group.",
+        errHint: "Check CH₃OCH₃: every hydrogen is bonded to Carbon, not Oxygen."
+      },
+      {
+        prompt: "Step 2 — Connect bonding to boiling point (Answer B):",
+        type: "mc",
+        options: [
+          { v: "a", t: "Ethanol molecules form strong O–H hydrogen bonds with one another, requiring far more energy to boil." },
+          { v: "b", t: "Ethanol has a heavier molar mass." }
+        ],
+        correct: "a",
+        okMsg: "Nailed it! Same molar mass (46 g/mol), huge BP jump caused by hydrogen bonding (Answer B).",
+        errHint: "Isomers always have the exact same molar mass!"
+      }
+    ]
+  },
+  {
+    id: "Q18", topic: "Detergent Micelle Cleaning", key: "B", highMiss: false,
+    stem: "How does a detergent molecule allow oily grease to wash away in water?",
+    steps: [
+      {
+        prompt: "Step 1 — Match 'like dissolves like' to the two ends of a surfactant molecule.",
+        type: "mc",
+        options: [
+          { v: "a", t: "Nonpolar hydrocarbon tail dissolves in nonpolar oil; polar/ionic head attracts polar water." },
+          { v: "b", t: "Polar head grabs nonpolar oil; nonpolar tail grabs water." }
+        ],
+        correct: "a",
+        okMsg: "Right! Polar pairs with polar water; nonpolar pairs with nonpolar oil.",
+        errHint: "Nonpolar grease interacts with nonpolar hydrocarbon tails, while water attracts the charged/polar head."
+      },
+      {
+        prompt: "Step 2 — Pick the clean summary statement (Answer B):",
+        type: "mc",
+        options: [
+          { v: "a", t: "The nonpolar tail interacts with nonpolar oil while the polar head interacts with polar water, suspending oil droplets." },
+          { v: "b", t: "Detergent breaks covalent C–H bonds inside oil." }
+        ],
+        correct: "a",
+        okMsg: "Exact! It bridges oil and water through IMFs without breaking covalent oil bonds (Answer B).",
+        errHint: "Soap dissolves oil via micelles and IMFs, not chemical decomposition."
+      }
+    ]
+  },
+  {
+    id: "Q19", topic: "Naming MgCl₂ (No Prefixes!)", key: "C", highMiss: true,
+    stem: "What is the correct chemical name of the compound MgCl₂?",
+    steps: [
+      {
+        prompt: "Step 1 — Classify MgCl₂ first: Mg is a Group 2 metal and Cl is a nonmetal. Should you use Greek prefixes like 'di-'?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Yes — 'magnesium dichloride'" },
+          { v: "b", t: "NO — ionic compounds never use Greek prefixes (prefixes are strictly for covalent molecules)!" }
+        ],
+        correct: "b",
+        okMsg: "Great catch! That was the #1 trap on Q19 (3/13 picked B).",
+        errHint: "Mono-/di-/tri- prefixes belong ONLY to covalent compounds of two nonmetals (like CO₂)."
+      },
+      {
+        prompt: "Step 2 — Does Magnesium (Group 2, fixed +2 charge) need a Roman numeral? Choose the exact name (Answer C):",
+        type: "mc",
+        options: [
+          { v: "a", t: "Magnesium(II) chloride" },
+          { v: "b", t: "Magnesium chloride" }
+        ],
+        correct: "b",
+        okMsg: "Correct! Fixed-charge Group 1/2 metals omit Roman numerals, and ionic names omit prefixes &rarr; Magnesium chloride (Answer C).",
+        errHint: "Group 1 and Group 2 metals always have fixed +1/+2 charges, so no Roman numeral is used."
+      }
+    ],
+    transferPool: [
+      { q: "Transfer Check: Type the exact IUPAC name for CaBr₂ (no prefixes!).", ans: "calcium bromide" },
+      { q: "Transfer Check: Type the exact IUPAC name for BaCl₂ (no prefixes!).", ans: "barium chloride" },
+      { q: "Transfer Check: Type the exact IUPAC name for SrF₂ (no prefixes!).", ans: "strontium fluoride" }
+    ]
+  },
+  {
+    id: "Q20", topic: "Formula for Iron(III) Bromide", key: "D", highMiss: true,
+    stem: "What is the correct chemical formula for iron(III) bromide?",
+    steps: [
+      {
+        prompt: "Step 1 — What does the Roman numeral '(III)' tell you about Iron?",
+        type: "mc",
+        options: [
+          { v: "a", t: "It means 3 iron atoms in the formula (Fe₃Br)." },
+          { v: "b", t: "It states the ION CHARGE on iron is 3+ (Fe³⁺)." }
+        ],
+        correct: "b",
+        okMsg: "Crucial rule! Roman numeral = cation charge (+3), NEVER the atom subscript.",
+        errHint: "Look carefully: Q20 was missed by 6/13 students because '(III)' was read as 3 Fe's!"
+      },
+      {
+        prompt: "Step 2 — Balance Fe³⁺ with bromide (Br⁻, charge 1-). How many Br⁻ ions are needed to reach net charge 0?",
+        type: "mc",
+        options: [
+          { v: "a", t: "FeBr₂" },
+          { v: "b", t: "Fe₃Br" },
+          { v: "c", t: "FeBr₃ (1 Fe³⁺ + 3 Br⁻ &rarr; +3 + 3(-1) = 0) (Answer D)" }
+        ],
+        correct: "c",
+        okMsg: "Nailed it! +3 balances three -1 bromides &rarr; FeBr₃ (Answer D).",
+        errHint: "Set total (+) + total (-) = 0: (+3) + ?(-1) = 0."
+      }
+    ],
+    transferPool: [
+      { q: "Transfer Check: Type the chemical formula for cobalt(III) chloride (case-sensitive letters, normal digits e.g. FeBr3).", ans: "CoCl3" },
+      { q: "Transfer Check: Type the chemical formula for chromium(III) iodide (normal digits).", ans: "CrI3" },
+      { q: "Transfer Check: Type the chemical formula for iron(III) fluoride (normal digits).", ans: "FeF3" }
+    ]
+  },
+  {
+    id: "Q21", topic: "Copper(II) Sulfate (CuSO₄)", key: "A", highMiss: true,
+    stem: "What is the chemical formula for copper(II) sulfate? (Remember: sulfate ion = SO₄²⁻)",
+    steps: [
+      {
+        prompt: "Step 1 — Match the exact ion charges for Copper(II) and Sulfate:",
+        type: "mc",
+        options: [
+          { v: "a", t: "Cu²⁺ (+2) and SO₄²⁻ (-2)" },
+          { v: "b", t: "Cu⁺ (+1) and SO₄²⁻ (-2)" },
+          { v: "c", t: "Cu²⁺ (+2) and SO₄⁻ (-1)" }
+        ],
+        correct: "a",
+        okMsg: "Yes! Copper(II) = +2 and Sulfate = -2.",
+        errHint: "Roman numeral (II) means Cu has charge +2; sulfate (SO₄²⁻) carries a 2- charge."
+      },
+      {
+        prompt: "Step 2 — Since +2 and -2 already add to zero 1:1, what is the simplest reduced formula (Answer A)?",
+        type: "mc",
+        options: [
+          { v: "a", t: "CuSO₄ (1 Cu²⁺ + 1 SO₄²⁻)" },
+          { v: "b", t: "Cu₂SO₄ (that would actually be copper(I) sulfate!)" },
+          { v: "c", t: "Cu₂(SO₄)₂ (unreduced 2:2 ratio)" }
+        ],
+        correct: "a",
+        okMsg: "Exact! Always reduce ionic ratios &rarr; CuSO₄ (Answer A). Now you'll never get caught without a polyatomic sheet!",
+        errHint: "Ionic formulas always show the lowest whole-number ratio (2:2 simplifies to 1:1)."
+      }
+    ],
+    transferPool: [
+      { q: "Transfer Check: Type the reduced formula for magnesium sulfate (Mg²⁺ + SO₄²⁻).", ans: "MgSO4" },
+      { q: "Transfer Check: Type the reduced formula for calcium carbonate (Ca²⁺ + CO₃²⁻).", ans: "CaCO3" },
+      { q: "Transfer Check: Type the reduced formula for copper(I) sulfate (Cu⁺ + SO₄²⁻).", ans: "Cu2SO4" }
+    ]
+  },
+  {
+    id: "Q22", topic: "MgF₂ Ion Lewis Diagram", key: "B", highMiss: false,
+    stem: "Which Lewis ion diagram correctly models magnesium fluoride (MgF₂)?",
+    steps: [
+      {
+        prompt: "Step 1 — Track valence electrons transferred from Mg (Group 2: 2 valence e⁻) to two F atoms (Group 17: 7 e⁻ each):",
+        type: "mc",
+        options: [
+          { v: "a", t: "Mg gives away both valence e⁻ (leaves 0 valence dots, +2 charge); each F gains 1 e⁻ (8 dots, -1 charge)." },
+          { v: "b", t: "Mg keeps 8 valence dots and shares pairs covalently with F." }
+        ],
+        correct: "a",
+        okMsg: "Correct! Ionic Lewis structures use brackets and charges—NO shared covalent lines.",
+        errHint: "Mg is a metal transferring 2 electrons, leaving an empty outer valence shell."
+      },
+      {
+        prompt: "Step 2 — Which ion count & charge brackets match MgF₂ (Answer B)?",
+        type: "mc",
+        options: [
+          { v: "a", t: "1 [Mg]²⁺ (0 dots) and 2 [:F:]⁻ (8 dots around each F)" },
+          { v: "b", t: "2 [Mg]⁺ and 1 [F]²⁻" }
+        ],
+        correct: "a",
+        okMsg: "Spot on! Answer B cleanly pairs one Mg²⁺ (0 dots) with two F⁻ ions (8 dots each).",
+        errHint: "Check formula MgF₂: 1 Mg²⁺ ion + 2 F⁻ ions."
+      }
+    ]
+  },
+  {
+    id: "Q23", topic: "OH⁻ & NH₄⁺ Valence e⁻", key: "C", highMiss: true,
+    stem: "Calculate the total number of valence electrons in hydroxide (OH⁻) and ammonium (NH₄⁺).",
+    steps: [
+      {
+        prompt: "Step 1 — Electrons are NEGATIVELY charged! What should you do when computing a CATION (+) like NH₄⁺ vs. an ANION (-) like OH⁻?",
+        type: "mc",
+        options: [
+          { v: "a", t: "ADD 1 e⁻ for (-1) charge; SUBTRACT 1 e⁻ for (+1) charge." },
+          { v: "b", t: "SUBTRACT 1 e⁻ for (-1) charge; ADD 1 e⁻ for (+1) charge." }
+        ],
+        correct: "a",
+        okMsg: "Critical rule locked in! Losing a negative electron makes an ion positive (+).",
+        errHint: "Remember: 3 students missed Q23 by adding +1 to NH₄⁺ (getting 10 instead of 8)!"
+      },
+      {
+        prompt: "Step 2 — Compute both totals (O=6, H=1, N=5) &rarr; pick Answer C:",
+        type: "mc",
+        options: [
+          { v: "a", t: "OH⁻ = 6 + 1 + 1 = 8 e⁻;   NH₄⁺ = 5 + 4(1) - 1 = 8 e⁻" },
+          { v: "b", t: "OH⁻ = 6 e⁻;   NH₄⁺ = 10 e⁻" }
+        ],
+        correct: "a",
+        okMsg: "Exact! Both polyatomic ions carry 8 valence electrons (Answer C).",
+        errHint: "OH⁻: 6 + 1 + 1 = 8. NH₄⁺: 5 + 4 - 1 = 8."
+      }
+    ],
+    transferPool: [
+      { q: "Transfer Check: How many total valence electrons are in hydronium H₃O⁺ (H=1, O=6)?", ans: "8" },
+      { q: "Transfer Check: How many total valence electrons are in cyanide CN⁻ (C=4, N=5)?", ans: "10" },
+      { q: "Transfer Check: How many total valence electrons are in amide NH₂⁻ (N=5, H=1)?", ans: "8" }
+    ]
+  },
+  {
+    id: "Q24", topic: "KBr Conductivity (Solid vs Liquid)", key: "B", highMiss: false,
+    stem: "Why does potassium bromide (KBr) NOT conduct electricity as a solid crystal, yet conducts well when melted?",
+    steps: [
+      {
+        prompt: "Step 1 — What two conditions are required for ANY material to conduct electric current?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Charged particles (electrons or ions) that are FREE TO MOVE." },
+          { v: "b", t: "Any solid with a high melting point." }
+        ],
+        correct: "a",
+        okMsg: "Correct! Charges must be mobile.",
+        errHint: "Locked charges cannot carry current from one electrode to the other."
+      },
+      {
+        prompt: "Step 2 — Apply that to solid vs. molten KBr (Answer B):",
+        type: "mc",
+        options: [
+          { v: "a", t: "Solid KBr locks K⁺ and Br⁻ ions rigidly in a crystal lattice; melting frees the ions to flow." },
+          { v: "b", t: "Melting creates covalent bonds between K and Br." }
+        ],
+        correct: "a",
+        okMsg: "Spot on! Fixed ions in solid = insulator; mobile ions in liquid/aqueous = conductor (Answer B).",
+        errHint: "Ions are already present in solid KBr, they just can't move until melted or dissolved."
+      }
+    ]
+  },
+  {
+    id: "Q25", topic: "Why Ionic CaF₂ Shatters", key: "A", highMiss: false,
+    stem: "When struck with a hammer, an ionic crystal like CaF₂ shatters instead of bending like a metal. Why?",
+    steps: [
+      {
+        prompt: "Step 1 — Inside an undisturbed CaF₂ crystal, every Ca²⁺ sits next to F⁻ ions (opposite charges attract). What happens when a hammer shifts one layer slightly?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Positive ions shift next to positive ions (+ with +), and negative next to negative (- with -)." },
+          { v: "b", t: "Valence electrons form a flexible sea." }
+        ],
+        correct: "a",
+        okMsg: "Right! Metals bend because their electron sea cushions shifting cations; ionic crystals misalign.",
+        errHint: "Think about alternating +/-/+/- rows sliding by 1 ion position."
+      },
+      {
+        prompt: "Step 2 — What force causes the shifted crystal plane to break apart instantly (Answer A)?",
+        type: "mc",
+        options: [
+          { v: "a", t: "Strong electrostatic REPULSION between newly aligned like charges drives the layers apart." },
+          { v: "b", t: "Gravity pulls the ions downward." }
+        ],
+        correct: "a",
+        okMsg: "Nailed it! Aligning like charges creates sudden repulsion and brittle cleavage (Answer A).",
+        errHint: "Like charges (+/+ and -/-) repel strongly."
+      }
+    ]
+  }
+];
+
+let appState = {
+  studentName: "",
+  studentSection: "",
+  paperScore: "",
+  selectedIds: [],
+  activeQ: null,
+  progress: {}, // { Q1: { stepIdx: 0, passedSteps: {}, answers: {}, transferOk: false, transferVal: '', reflection: '' } }
+  view: "setup",
+  lastSubmitted: null
+};
+
+function ensureQState(qId) {
+  if (!appState.progress[qId]) {
+    appState.progress[qId] = { stepIdx: 0, passedSteps: {}, answers: {}, transferOk: false, transferVal: "", reflection: "" };
+  }
+  return appState.progress[qId];
+}
+
+function isQuestionComplete(qId) {
+  const q = QUESTIONS.find(x => x.id === qId);
+  if (!q) return false;
+  const st = ensureQState(qId);
+  for (let i = 0; i < q.steps.length; i++) {
+    if (!st.passedSteps[i]) return false;
+  }
+  if (q.transferPool && !st.transferOk) return false;
+  if (!st.reflection || st.reflection.trim().length < 25) return false;
+  return true;
+}
+
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(appState)); } catch (e) {}
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      appState = Object.assign(appState, parsed);
+    }
+  } catch (e) {}
+}
+
+function saveIdentity() {
+  appState.studentName = document.getElementById("studentName").value;
+  appState.studentSection = document.getElementById("studentSection").value;
+  appState.paperScore = document.getElementById("paperScore").value;
+  saveState();
+}
+
+function renderQuestionGrid() {
+  const grid = document.getElementById("questionGrid");
+  grid.innerHTML = QUESTIONS.map(q => {
+    const sel = appState.selectedIds.includes(q.id);
+    const trap = q.highMiss ? `<span class="badge-trap">Top Trap</span>` : "";
+    return `
+      <label class="q-chip ${sel ? 'selected' : ''}" onclick="toggleQuestion('${q.id}', event)">
+        <input type="checkbox" ${sel ? 'checked' : ''} onclick="event.stopPropagation(); toggleQuestion('${q.id}', event)">
+        <div>
+          <span class="q-num">${q.id}</span>
+          <span class="q-tag">${escapeHtml(q.topic)}</span>
+          ${trap}
+        </div>
+      </label>
+    `;
+  }).join("");
+  document.getElementById("setupSummary").textContent = `${appState.selectedIds.length} question${appState.selectedIds.length === 1 ? '' : 's'} selected`;
+}
+
+function toggleQuestion(qId, ev) {
+  if (ev && ev.target.tagName !== "INPUT") {
+    // Prevent double toggle on label+checkbox
+  }
+  const idx = appState.selectedIds.indexOf(qId);
+  if (idx >= 0) appState.selectedIds.splice(idx, 1);
+  else appState.selectedIds.push(qId);
+  // Keep numerical order Q1..Q25
+  appState.selectedIds.sort((a, b) => parseInt(a.slice(1), 10) - parseInt(b.slice(1), 10));
+  if (appState.selectedIds.length > 0 && !appState.selectedIds.includes(appState.activeQ)) {
+    appState.activeQ = appState.selectedIds[0];
+  }
+  saveState();
+  renderQuestionGrid();
+}
+
+function selectTrapsPreset() {
+  appState.selectedIds = ["Q1", "Q11", "Q19", "Q20", "Q21", "Q23"];
+  appState.activeQ = "Q1";
+  saveState();
+  renderQuestionGrid();
+}
+
+function clearSelection() {
+  appState.selectedIds = [];
+  appState.activeQ = null;
+  saveState();
+  renderQuestionGrid();
+}
+
+function startWorkspace() {
+  saveIdentity();
+  if (!appState.studentName.trim()) {
+    alert("Please enter your Full Name before beginning (your name personalizes the transfer check questions).");
+    document.getElementById("studentName").focus();
+    return;
+  }
+  if (!appState.studentSection.trim()) {
+    alert("Please enter your Class Section before beginning.");
+    document.getElementById("studentSection").focus();
+    return;
+  }
+  if (appState.selectedIds.length === 0) {
+    alert("Please check at least one question to rework.");
+    return;
+  }
+  if (!appState.activeQ || !appState.selectedIds.includes(appState.activeQ)) {
+    appState.activeQ = appState.selectedIds[0];
+  }
+  switchView("workspace");
+}
+
+function switchView(viewName) {
+  appState.view = viewName;
+  saveState();
+  document.getElementById("viewSetup").classList.toggle("hidden", viewName !== "setup");
+  document.getElementById("viewWorkspace").classList.toggle("hidden", viewName !== "workspace");
+  document.getElementById("viewTicket").classList.toggle("hidden", viewName !== "ticket");
+  document.getElementById("navTicketBtn").style.display = appState.selectedIds.length > 0 ? "inline-flex" : "none";
+
+  if (viewName === "setup") renderQuestionGrid();
+  if (viewName === "workspace") renderWorkspace();
+  if (viewName === "ticket") renderTicket();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function renderWorkspace() {
+  document.getElementById("wsHeaderName").textContent = appState.studentName.trim() || "Student";
+  const scoreTxt = appState.paperScore !== "" ? `Score: ${appState.paperScore}/25` : "Score: N/A";
+  document.getElementById("wsHeaderMeta").textContent = `Section: ${appState.studentSection.trim() || "—"} • ${scoreTxt}`;
+
+  const total = appState.selectedIds.length;
+  const doneCount = appState.selectedIds.filter(isQuestionComplete).length;
+  const pct = total ? Math.round((doneCount / total) * 100) : 0;
+  document.getElementById("wsProgressFill").style.width = `${pct}%`;
+  document.getElementById("wsProgressLabel").textContent = `${doneCount} of ${total} selected questions completed (${pct}%)`;
+
+  const tabsEl = document.getElementById("qTabs");
+  tabsEl.innerHTML = appState.selectedIds.map(id => {
+    const done = isQuestionComplete(id);
+    const act = id === appState.activeQ;
+    return `<button type="button" class="q-tab ${act ? 'active' : ''} ${done ? 'done' : ''}" onclick="setActiveQ('${id}')">${id} ${done ? '&#10003;' : ''}</button>`;
+  }).join("");
+
+  renderActiveQuestion();
+}
+
+function setActiveQ(qId) {
+  appState.activeQ = qId;
+  saveState();
+  renderWorkspace();
+}
+
+function renderActiveQuestion() {
+  const container = document.getElementById("activeQuestionCard");
+  const q = QUESTIONS.find(x => x.id === appState.activeQ);
+  if (!q) {
+    container.innerHTML = `<p>No question selected.</p>`;
+    return;
+  }
+  const st = ensureQState(q.id);
+  const stepsHtml = q.steps.map((step, i) => {
+    const unlocked = (i === 0) || Boolean(st.passedSteps[i - 1]);
+    const passed = Boolean(st.passedSteps[i]);
+    const chosen = st.answers[i] || "";
+    const optsHtml = step.options.map(o => `
+      <label class="opt-label">
+        <input type="radio" name="opt_${q.id}_${i}" value="${o.v}" ${chosen === o.v ? 'checked' : ''} onchange="selectStepOpt('${q.id}', ${i}, '${o.v}')">
+        <span>${o.t}</span>
+      </label>
+    `).join("");
+
+    let fbHtml = "";
+    if (passed) {
+      fbHtml = `<div class="feedback show ok">${step.okMsg}</div>`;
+    } else if (st.answers[i] && st.lastErrStep === i) {
+      fbHtml = `<div class="feedback show err">${step.errHint}</div>`;
+    }
+
+    return `
+      <div class="step-box ${unlocked ? '' : 'locked'} ${passed ? 'passed' : ''}">
+        <div class="step-header">
+          <div class="step-title">${step.prompt}</div>
+          <span class="step-status">${passed ? 'Passed' : (unlocked ? 'In Progress' : 'Locked')}</span>
+        </div>
+        <div class="option-list">${optsHtml}</div>
+        <button type="button" class="btn btn-primary" onclick="checkStep('${q.id}', ${i})" ${passed ? 'disabled' : ''}>Check Answer</button>
+        ${fbHtml}
+      </div>
+    `;
+  }).join("");
+
+  let transferHtml = "";
+  if (q.transferPool) {
+    const allStepsPassed = q.steps.every((_, idx) => Boolean(st.passedSteps[idx]));
+    const variant = pickVariant(q.id, q.transferPool);
+    let tfFb = "";
+    if (st.transferOk) {
+      tfFb = `<div class="feedback show ok">Verified! Your personalized transfer check (${escapeHtml(variant.ans)}) is complete.</div>`;
+    } else if (st.transferErr) {
+      tfFb = `<div class="feedback show err">${escapeHtml(st.transferErr)}</div>`;
+    }
+    transferHtml = `
+      <div class="step-box ${allStepsPassed ? '' : 'locked'} ${st.transferOk ? 'passed' : ''}">
+        <div class="step-header">
+          <div class="step-title">Step ${q.steps.length + 1} — Personalized Transfer Check <span style="font-size:0.78rem;font-weight:600;color:var(--primary);">(Seeded for ${escapeHtml(appState.studentName.trim())})</span></div>
+          <span class="step-status">${st.transferOk ? 'Passed' : (allStepsPassed ? 'Required' : 'Locked')}</span>
+        </div>
+        <p style="margin:0 0 10px; font-weight:600;">${variant.q}</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+          <input type="text" id="tfInput_${q.id}" value="${escapeHtml(st.transferVal || '')}" placeholder="Type your answer..." style="max-width:260px;" ${st.transferOk ? 'disabled' : ''}>
+          <button type="button" class="btn btn-teal" onclick="checkTransfer('${q.id}')" ${st.transferOk ? 'disabled' : ''}>Verify Transfer</button>
+        </div>
+        ${tfFb}
+      </div>
+    `;
+  }
+
+  const refLen = (st.reflection || "").trim().length;
+  const idxInSel = appState.selectedIds.indexOf(q.id);
+  const nextQId = idxInSel >= 0 && idxInSel + 1 < appState.selectedIds.length ? appState.selectedIds[idxInSel + 1] : null;
+  const qDone = isQuestionComplete(q.id);
+
+  container.innerHTML = `
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+      <div>
+        <span style="font-size:0.8rem; font-weight:800; color:var(--primary); text-transform:uppercase;">${q.id} • ${escapeHtml(q.topic)}</span>
+        <h2 style="margin:4px 0 0; font-size:1.2rem;">${q.stem}</h2>
+      </div>
+      <span class="status-pill ${qDone ? 'status-qualified' : 'status-progress'}">${qDone ? 'Rework Complete' : 'Needs Completion'}</span>
+    </div>
+    ${q.svg ? `<div class="svg-frame">${q.svg}</div>` : ''}
+    ${stepsHtml}
+    ${transferHtml}
+    <div class="reflection-box">
+      <label class="field-label" for="refl_${q.id}">Student Reflection (Minimum 25 characters): Why did you miss this originally, and what chemical rule fixes it?</label>
+      <textarea id="refl_${q.id}" rows="3" placeholder="Explain your original misconception and the exact rule..." oninput="saveReflection('${q.id}', this.value)">${escapeHtml(st.reflection || '')}</textarea>
+      <div class="char-count" id="charCount_${q.id}">${refLen} / 25 characters minimum ${refLen >= 25 ? '(&#10003; Ready)' : ''}</div>
+    </div>
+    <div style="display:flex; justify-content:space-between; margin-top:16px; flex-wrap:wrap; gap:10px;">
+      <div></div>
+      <div style="display:flex; gap:10px;">
+        ${nextQId ? `<button type="button" class="btn btn-primary" onclick="setActiveQ('${nextQId}')">Next Question (${nextQId}) &rarr;</button>` : `<button type="button" class="btn btn-teal" onclick="switchView('ticket')">Finish &amp; Go to Retest Ticket &rarr;</button>`}
+      </div>
+    </div>
+  `;
+}
+
+function selectStepOpt(qId, stepIdx, val) {
+  const st = ensureQState(qId);
+  st.answers[stepIdx] = val;
+  st.lastErrStep = null;
+  saveState();
+}
+
+function checkStep(qId, stepIdx) {
+  const q = QUESTIONS.find(x => x.id === qId);
+  const st = ensureQState(qId);
+  const chosen = st.answers[stepIdx];
+  if (!chosen) {
+    alert("Please pick an option first.");
+    return;
+  }
+  if (chosen === q.steps[stepIdx].correct) {
+    st.passedSteps[stepIdx] = true;
+    st.lastErrStep = null;
+  } else {
+    st.lastErrStep = stepIdx;
+  }
+  saveState();
+  renderWorkspace();
+}
+
+function normalizeAns(s) {
+  return String(s).trim().replace(/\s+/g, " ");
+}
+
+function checkTransfer(qId) {
+  const q = QUESTIONS.find(x => x.id === qId);
+  const st = ensureQState(qId);
+  const variant = pickVariant(qId, q.transferPool);
+  const val = document.getElementById(`tfInput_${qId}`).value;
+  st.transferVal = val;
+  const userNorm = normalizeAns(val);
+  const expNorm = normalizeAns(variant.ans);
+
+  // Case-insensitive for word answers ('polar', 'calcium bromide'), exact formula check if digits/mixed-case (unless user typed lowercase formula cleanly? Wait: formulas are safer case-insensitive trimmed except CO vs Co, so allow exact OR case-insensitive if length > 2 and no ambiguity, better yet check case-insensitive for words and formulas while reminding!)
+  const ok = userNorm.toLowerCase() === expNorm.toLowerCase();
+  if (ok) {
+    st.transferOk = true;
+    st.transferErr = "";
+  } else {
+    st.transferOk = false;
+    st.transferErr = "Not quite — double-check your stoichiometry, ion charge, or electron count and try again.";
+  }
+  saveState();
+  renderWorkspace();
+}
+
+function saveReflection(qId, text) {
+  const st = ensureQState(qId);
+  st.reflection = text;
+  saveState();
+  const len = text.trim().length;
+  const el = document.getElementById(`charCount_${qId}`);
+  if (el) el.innerHTML = `${len} / 25 characters minimum ${len >= 25 ? '(&#10003; Ready)' : ''}`;
+  // Live-update tab badge without full re-render
+  const doneCount = appState.selectedIds.filter(isQuestionComplete).length;
+  const total = appState.selectedIds.length;
+  const pct = total ? Math.round((doneCount / total) * 100) : 0;
+  document.getElementById("wsProgressFill").style.width = `${pct}%`;
+  document.getElementById("wsProgressLabel").textContent = `${doneCount} of ${total} selected questions completed (${pct}%)`;
+}
+
+function renderTicket() {
+  const totalSelected = appState.selectedIds.length;
+  const completedIds = appState.selectedIds.filter(isQuestionComplete);
+  const completedCount = completedIds.length;
+  const isQualified = totalSelected > 0 && completedCount === totalSelected;
+  const nowStr = new Date().toLocaleString();
+  const stamp = `U2CP2-${completedCount}OF${totalSelected}-${hashString((appState.studentName || "") + "|" + completedIds.join(",")).toString(16).toUpperCase().padStart(8, "0")}`;
+
+  const rowsHtml = appState.selectedIds.map(id => {
+    const q = QUESTIONS.find(x => x.id === id);
+    const st = ensureQState(id);
+    const done = isQuestionComplete(id);
+    return `
+      <tr>
+        <td><strong>${id}</strong></td>
+        <td>${escapeHtml(q.topic)}</td>
+        <td>${done ? '<span style="color:#0f766e;font-weight:700;">COMPLETE</span>' : '<span style="color:#be123c;font-weight:700;">INCOMPLETE</span>'}</td>
+        <td style="font-size:0.84rem;">${escapeHtml(st.reflection || "—")}</td>
+      </tr>
+    `;
+  }).join("");
+
+  document.getElementById("ticketContent").innerHTML = `
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+      <div>
+        <h2 style="margin:0;">Unit 2 Checkpoint 2 — Retest Qualifier Ticket</h2>
+        <p style="margin:4px 0 0; color:var(--ink-muted); font-size:0.9rem;">Generated: ${escapeHtml(nowStr)} • Verification Code: <code>${stamp}</code></p>
+      </div>
+      <span class="status-pill ${isQualified ? 'status-qualified' : 'status-progress'}">${isQualified ? 'QUALIFIED FOR RETEST' : `IN PROGRESS (${completedCount}/${totalSelected})`}</span>
+    </div>
+    <div class="form-grid" style="background:var(--surface-2); padding:12px 14px; border-radius:8px; border:1px solid var(--border);">
+      <div><strong>Student Name:</strong><br>${escapeHtml(appState.studentName.trim() || "—")}</div>
+      <div><strong>Section:</strong><br>${escapeHtml(appState.studentSection.trim() || "—")}</div>
+      <div><strong>Original Score:</strong><br>${appState.paperScore !== "" ? escapeHtml(appState.paperScore) + " / 25" : "N/A"}</div>
+      <div><strong>Progress:</strong><br>${completedCount} of ${totalSelected} Questions Verified</div>
+    </div>
+    <table class="ref-table">
+      <thead><tr><th>Q#</th><th>Topic</th><th>Status</th><th>Student Reflection</th></tr></thead>
+      <tbody>${rowsHtml || '<tr><td colspan="4">No questions selected.</td></tr>'}</tbody>
+    </table>
+  `;
+}
+
+async function submitToGoogleSheet() {
+  const totalSelected = appState.selectedIds.length;
+  const completedIds = appState.selectedIds.filter(isQuestionComplete);
+  const completedCount = completedIds.length;
+  const isQualified = totalSelected > 0 && completedCount === totalSelected;
+
+  if (!appState.studentName.trim()) {
+    alert("Student name is missing.");
+    return;
+  }
+
+  const verificationStamp = `U2CP2-${completedCount}OF${totalSelected}-${hashString(appState.studentName.trim() + "|" + completedIds.join(",")).toString(16).toUpperCase().padStart(8, "0")}`;
+  const mathParts = [];
+  const reflectionsList = [];
+  completedIds.forEach(id => {
+    const q = QUESTIONS.find(x => x.id === id);
+    const st = ensureQState(id);
+    if (q.transferPool && st.transferOk) {
+      mathParts.push(`${id}:${st.transferVal}`);
+    }
+    if (st.reflection) {
+      reflectionsList.push(`${id}: ${st.reflection.trim()}`);
+    }
+  });
+  const mathSummary = mathParts.length ? mathParts.join("; ") : "No transfer math items completed";
+
+  const payload = {
+    studentName: appState.studentName.trim(),
+    studentSection: appState.studentSection.trim() || "G9",
+    paperScore: appState.paperScore !== "" ? `[CP2] ${appState.paperScore}/25` : "[CP2] N/A",
+    status: isQualified ? "QUALIFIED" : `IN PROGRESS (${completedCount}/${totalSelected})`,
+    verificationStamp: verificationStamp,
+    completedSummary: `${completedCount}/${totalSelected} Questions Reworked (${completedIds.join(", ")})`,
+    mathSummary: mathSummary,
+    reflectionsSummary: reflectionsList.join(" | ")
+  };
+
+  const btn = document.getElementById("submitSheetBtn");
+  const banner = document.getElementById("submitBanner");
+  btn.disabled = true;
+  btn.textContent = "Submitting...";
+
+  const scriptUrl = localStorage.getItem(SCRIPT_URL_KEY) || DEFAULT_GOOGLE_SCRIPT_URL;
+  try {
+    await fetch(scriptUrl, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    banner.className = "notice notice-teal";
+    banner.textContent = `Submitted to Class Sheet! Recorded ${payload.studentName} as "${payload.status}" (${payload.paperScore}) at ${new Date().toLocaleTimeString()}.`;
+    banner.classList.remove("hidden");
+  } catch (err) {
+    banner.className = "notice notice-rose";
+    banner.textContent = "Submission network error — please print/save your PDF Ticket and notify your teacher.";
+    banner.classList.remove("hidden");
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Submit Corrections to Class Sheet";
+  }
+}
+
+function resetDraft() {
+  if (!confirm("Erase your current test corrections draft from this browser?")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  appState = { studentName: "", studentSection: "", paperScore: "", selectedIds: [], activeQ: null, progress: {}, view: "setup", lastSubmitted: null };
+  document.getElementById("studentName").value = "";
+  document.getElementById("studentSection").value = "";
+  document.getElementById("paperScore").value = "";
+  switchView("setup");
+}
+
+function openRefModal() { document.getElementById("refModal").classList.add("open"); }
+function closeRefModal() { document.getElementById("refModal").classList.remove("open"); }
+function openSettingsModal() {
+  document.getElementById("scriptUrlInput").value = localStorage.getItem(SCRIPT_URL_KEY) || DEFAULT_GOOGLE_SCRIPT_URL;
+  document.getElementById("settingsModal").classList.add("open");
+}
+function closeSettingsModal() { document.getElementById("settingsModal").classList.remove("open"); }
+function saveScriptUrl() {
+  const val = document.getElementById("scriptUrlInput").value.trim();
+  if (val) localStorage.setItem(SCRIPT_URL_KEY, val);
+  closeSettingsModal();
+}
+function resetScriptUrl() {
+  localStorage.removeItem(SCRIPT_URL_KEY);
+  document.getElementById("scriptUrlInput").value = DEFAULT_GOOGLE_SCRIPT_URL;
+}
+
+document.addEventListener("keydown", function(e) {
+  if (e.ctrlKey && e.shiftKey && (e.key === "S" || e.key === "s")) {
+    e.preventDefault();
+    openSettingsModal();
+  }
+});
+
+// Boot
+loadState();
+document.getElementById("studentName").value = appState.studentName || "";
+document.getElementById("studentSection").value = appState.studentSection || "";
+document.getElementById("paperScore").value = appState.paperScore || "";
+switchView(appState.view || "setup");
+</script>
+</body>
+</html>
